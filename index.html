@@ -23,9 +23,16 @@
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
       </table>
-      <canvas width=500 height=500></canvas>
+      <canvas id="canvas"></canvas>
     </div>
     <script>
+      (function() {
+          var canvas = document.getElementById("canvas");
+          var canvasStyle = getComputedStyle(canvas);
+          canvas.width = parseInt(canvasStyle.width);
+          canvas.height = parseInt(canvasStyle.height);
+      }());
+
       TinyTurtle.apply(window);
 
       function setColor(row, col, color) {
